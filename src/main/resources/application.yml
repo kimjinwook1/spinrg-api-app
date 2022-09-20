@@ -36,3 +36,8 @@ feign:
       default:
         connectTimeout: 5000
         readTimeout: 5000
+
+kakao:
+  client:
+    id: b39994f66f7bcadb1f9d85d1e2f4d384
+    secret: ENOTmVtcFuC5hxqWjLq8imqsni71MUCy
