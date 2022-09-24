@@ -1,6 +1,7 @@
 package com.app.api.login.controller;
 
 import com.app.api.login.dto.OAuthLoginDto;
+import com.app.api.login.dto.OAuthLoginDto.Response;
 import com.app.api.login.service.OAuthLoginService;
 import com.app.api.login.validator.OAuthValidator;
 import com.app.domain.member.constant.MemberType;
@@ -30,8 +31,9 @@ public class OAuthLoginController {
 		oAuthValidator.validateMemberType(oauthLoginRequestDto.getMemberType());
 
 		String accessToken = authorizationHeader.split(" ")[1];
-		oAuthLoginService.oauthLogin(accessToken, MemberType.from(oauthLoginRequestDto.getMemberType()));
+		Response jwtTokenResponseDto =
+				oAuthLoginService.oauthLogin(accessToken, MemberType.from(oauthLoginRequestDto.getMemberType()));
 
-		return ResponseEntity.ok(OAuthLoginDto.Response.builder().build());
+		return ResponseEntity.ok(jwtTokenResponseDto);
 	}
 }
