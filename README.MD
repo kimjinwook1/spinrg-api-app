@@ -79,3 +79,12 @@ api 패키지와 domain 패키지 설계 시 중요점
   - 정상 토큰
   - Token Type
   - Access Token 만료 시간
+
+### MemberInfoArgumentResolver
+- access token에서 가지고 있는 유저의 정보를 컨트롤러 클래스 메서드의 파라미터로 받을 수 있도록 Argument Resolver 구현
+
+1. @MemberInfo 어노테이션 생성
+2. 회원 정보를 가지는 MemberInfoDTo 클래스 생성
+3. MemberInfoArgumentResolver 로직 구현
+4. WebConfig에 Argument Resolver 등록
+5. 컨트롤러 클래스 메서드에 @MemberInfo 어노테이션 기반으로 회원 정보를 받아와서 사
