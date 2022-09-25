@@ -24,6 +24,10 @@ spring:
     multipart:
       max-file-size: 10MB # 파일 업로드 요청 시 하나의 파일 크기를 10MB 제한
       max-request-size: 100MB # 파일 업로드 요청 시 모든 파일 크기의 합을 100MB 제한
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
 
 logging:
   level:
@@ -46,5 +50,6 @@ token:
   secret: ENC(Mh0TZlqIhLH97s376W91PC1NqXMv683TG1nJ8bJK2k61KQyXypdZBQ==) # 임의의 문자열
   access-token-expiration-time: 900000      # 15분 1000(ms) * 60(s) * 15(m)
   refresh-token-expiration-time: 1209600000 # 2주 1000(ms) * 60(s) * 60(m) * 24(h) * 14(d)
+
 jasypt:
   password: ${PASSWORD}

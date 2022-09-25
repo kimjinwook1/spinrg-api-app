@@ -103,3 +103,17 @@ api 패키지와 domain 패키지 설계 시 중요점
 **jasypt build.gradle 추가**
 - PooledPBEStringEncryptor : 멀티코어 시스템에서 해독을 병렬 처리
 - Pool size의 경우 머신의 코어수와 동일하게 설정하는게 좋음
+
+### Swagger
+- OAS(Open Api specification)을 위한 프레임워크
+- API 문서화를 어노테이션을 이용하여 자동화 할 수 있게 도와줌
+- Swagger 문서페이지에서 데이터를 직접 입력하고 API 응답 결과를 받아볼 수 있음
+- Swagger 문서 경로 : http://localhost:8080/swagger-ui/index.html
+- Swagger 관련 어노테이션 
+  | 어노테이션 | 설명 |  
+  | --- | --- |  
+  | @Tag | API 그룹 설정<br/>- name : 태그의 이름<br/>- description : API 그룹에 대한 설명 |  
+  | @Operation | API에 대한 설명<br/>- summary : api에 대한 짧은 설명<br/>- description : api에 대한 자세한 설명 |  
+  | @Schema | 모델에 대한 정보 제공<br/>- description: 필드에 대한 설명<br/>- example: 예시 값<br/>- required: 필수 여부(default false) |  
+  | @ApiResponse | Api 호출 결과에 대해서 설명<br/>- responseCode : 응답 코드<br/>- description : 응답 코드에 대한 설명<br/>복수개의 응답 지정(200, 500, http status code 등)을 지정할 경우 @ApiResponses 어노테이션 사용 |  
+  | @Parameter | Api의 Request Parameter에 대한 설명<br/>- name : 파라미터에 대한 이름<br/>- description : 파라미터에 대한 설명<br/>- required: 필수 여부 (default false)<br/>- in : 파라미터 위치(query, path, header, cookie)<br/>복수개의 파라미터를 설명할 경우 @Parameters 어노테이션 사용 |  
