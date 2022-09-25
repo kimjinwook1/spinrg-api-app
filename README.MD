@@ -88,3 +88,6 @@ api 패키지와 domain 패키지 설계 시 중요점
 3. MemberInfoArgumentResolver 로직 구현
 4. WebConfig에 Argument Resolver 등록
 5. 컨트롤러 클래스 메서드에 @MemberInfo 어노테이션 기반으로 회원 정보를 받아와서 사
+
+### AdminAuthorizationInterceptor
+- "/api/admin/**" path parttern으로 요청이 오는 경우 access token의 Role이 ADMIN Role 인지 검사
