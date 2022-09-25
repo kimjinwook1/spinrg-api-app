@@ -91,3 +91,15 @@ api 패키지와 domain 패키지 설계 시 중요점
 
 ### AdminAuthorizationInterceptor
 - "/api/admin/**" path parttern으로 요청이 오는 경우 access token의 Role이 ADMIN Role 인지 검사
+
+### yml 암호화
+- yml 파일에 입력한 외부에 노출되서는 안되는 민감한 정보들은 암호화 적용
+- ex) 데이터베이스 id/password, token secret key, kakao client id/password 등
+
+**jasypt build.gradle 추가**
+- jasypt : Java Simplified Encryption의 약자
+- 개발자가 암호화에 대한 지식이 없어도 함호화 기능을 쉽게 사용할 수 있게 도와주는 라이브러리
+
+**jasypt build.gradle 추가**
+- PooledPBEStringEncryptor : 멀티코어 시스템에서 해독을 병렬 처리
+- Pool size의 경우 머신의 코어수와 동일하게 설정하는게 좋음

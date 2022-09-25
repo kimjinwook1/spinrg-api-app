@@ -13,7 +13,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
-    show-sql: true # 콘솔에 sql 출력
+#    show-sql: true # 콘솔에 sql 출력
     properties:
       hibernate:
         format_sql: true # sql 예쁘게 출력
@@ -28,7 +28,7 @@ spring:
 logging:
   level:
     org.hiberante.type: trace # 콘솔창에 조건에 바인딩 되는 값 및 조회 결과 출력
-    com.app: debug # todo ??? ??
+    com.app: debug # todo 패키지 수정
 
 feign:
   client:
@@ -39,10 +39,12 @@ feign:
 
 kakao:
   client:
-    id: b39994f66f7bcadb1f9d85d1e2f4d384
-    secret: ENOTmVtcFuC5hxqWjLq8imqsni71MUCy
+    id: ENC(iPuzqZDrEpN/CLtY+cSR2VjvCMCFRdf67epugSvoWF1j3jUTaeMCoMfgh0/Yxta2)
+    secret: ENC(jLKrla8E6Qj6eKZ3O7aI3V1iYsQn8b2hqI1zvl0DB9/Q16AbwMgCP1qyUvEqHpWK)
 
 token:
-  secret: and0LXRva2VuLXNlY3Jlda== # 임의의 문자열
+  secret: ENC(Mh0TZlqIhLH97s376W91PC1NqXMv683TG1nJ8bJK2k61KQyXypdZBQ==) # 임의의 문자열
   access-token-expiration-time: 900000      # 15분 1000(ms) * 60(s) * 15(m)
   refresh-token-expiration-time: 1209600000 # 2주 1000(ms) * 60(s) * 60(m) * 24(h) * 14(d)
+jasypt:
+  password: ${PASSWORD}
