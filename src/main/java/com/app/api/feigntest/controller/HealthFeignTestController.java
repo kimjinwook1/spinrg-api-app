@@ -2,6 +2,7 @@ package com.app.api.feigntest.controller;
 
 import com.app.api.feigntest.client.HelloClient;
 import com.app.api.health.dto.HealthCheckResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
