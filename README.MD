@@ -72,3 +72,10 @@ api 패키지와 domain 패키지 설계 시 중요점
 ### 소셜 로그인 및 JWT 발급
 ![img_1.png](img_1.png)
 ![img_2.png](img_2.png)
+
+### Authentication Interceptor
+- 현재 요청하는 API에 대해서 인증 ㅔㅊ크
+  - 토큰 전송 여부
+  - 정상 토큰
+  - Token Type
+  - Access Token 만료 시간
