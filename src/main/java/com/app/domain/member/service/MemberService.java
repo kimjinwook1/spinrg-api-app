@@ -5,6 +5,7 @@ import com.app.domain.member.repository.MemberRepository;
 import com.app.global.error.ErrorCode;
 import com.app.global.error.excpetion.AuthenticationException;
 import com.app.global.error.excpetion.BusinessException;
+import com.app.global.error.excpetion.EntityNotFoundException;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
@@ -45,5 +46,10 @@ public class MemberService {
 		}
 
 		return member;
+	}
+
+	public Member findMemberByMemberId(Long memberId) {
+		return memberRepository.findById(memberId)
+				.orElseThrow(() -> new EntityNotFoundException(ErrorCode.MEMBER_NOT_EXISTS));
 	}
 }

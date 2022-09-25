@@ -1,4 +1,4 @@
-package com.app.global.error.excpetion;
+package com.app.global.error;
 
 import java.util.List;
 import lombok.Builder;
