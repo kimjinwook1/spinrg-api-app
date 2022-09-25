@@ -1,7 +1,7 @@
-package com.app.api.exception.controller;
+package com.app.api.exceptiontest.controller;
 
-import com.app.api.exception.dto.BindExceptionTestDto;
-import com.app.api.exception.dto.TestEnum;
+import com.app.api.exceptiontest.dto.BindExceptionTestDto;
+import com.app.api.exceptiontest.dto.TestEnum;
 import com.app.global.error.ErrorCode;
 import com.app.global.error.excpetion.BusinessException;
 import javax.validation.Valid;

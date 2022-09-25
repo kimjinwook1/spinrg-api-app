@@ -1,4 +1,4 @@
-package com.app.api.exception.dto;
+package com.app.api.exceptiontest.dto;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
