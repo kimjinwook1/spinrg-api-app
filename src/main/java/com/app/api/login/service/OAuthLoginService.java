@@ -31,24 +31,19 @@ public class OAuthLoginService {
 		log.info("userInfo : {}", userInfo);
 
 		JwtTokenDto jwtTokenDto;
+		Member oauthMember;
 
 		Optional<Member> optionalMember = memberService.findMemberByEmail(userInfo.getEmail());
+
 		if (optionalMember.isEmpty()) { // 신규 회원 가입
-
-			Member oauthMember = userInfo.toMemberEntity(memberType, Role.ADMIN);
+			oauthMember = userInfo.toMemberEntity(memberType, Role.ADMIN);
 			memberService.registerMember(oauthMember);
-
-			// 토큰 생성
-			jwtTokenDto = tokenManager.createJwtTokenDto(oauthMember.getMemberId(), oauthMember.getRole());
-			oauthMember.updateRefreshToken(jwtTokenDto);
 		} else { // 기존 회원일 경우
-			Member oauthMember = optionalMember.get();
-
-			// 토큰 생성
-			jwtTokenDto = tokenManager.createJwtTokenDto(oauthMember.getMemberId(), oauthMember.getRole());
-			oauthMember.updateRefreshToken(jwtTokenDto);
-
+			oauthMember = optionalMember.get();
 		}
+		// 토큰 생성
+		jwtTokenDto = tokenManager.createJwtTokenDto(oauthMember.getMemberId(), oauthMember.getRole());
+		oauthMember.updateRefreshToken(jwtTokenDto);
 
 		return OAuthLoginDto.Response.of(jwtTokenDto);
 	}
